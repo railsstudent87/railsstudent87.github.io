@@ -23,6 +23,11 @@ function activateGallery() {
   updatePage();
   
   thumbnails.forEach(function(image) {
+    // Preload large images.
+    // let newImageSrc  = image.dataset.largeVersion;
+    let largeVersion = new Image();
+    largeVersion.src = image.dataset.largeVersion;
+    
     image.addEventListener("click", function(event) {
       currentImage.parentNode.classList.remove("current");
       image.parentNode.classList.add("current");
